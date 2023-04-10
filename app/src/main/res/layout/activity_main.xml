@@ -15,18 +15,20 @@
 
         <Button
             android:id="@+id/QA_button"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:text="@string/QA_button"
             android:textSize="12dp"
             />
 
+    </LinearLayout>
+
         <Button
             android:id="@+id/play_button"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:text="@string/play_button"
             />
-    </LinearLayout>
+
 
 </LinearLayout>

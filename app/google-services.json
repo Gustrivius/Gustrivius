@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "854076783556",
+    "project_id": "gustrivius",
+    "storage_bucket": "gustrivius.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:854076783556:android:413720ad81e7f8f5c84291",
+        "android_client_info": {
+          "package_name": "com.example.gustrivius"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "854076783556-d59mtk7vns2ra080g4as4vdt30h3vn8p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpt7cZd_6Rw8PJGO37FdywEw9MKh1F2Yw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "854076783556-d59mtk7vns2ra080g4as4vdt30h3vn8p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

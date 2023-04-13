@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.gustrivius.databinding.ActivityQaactivityBinding
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class QAActivity : AppCompatActivity() {
+    public val db = Firebase.firestore
     private lateinit var binding: ActivityQaactivityBinding
     private val MenuLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()

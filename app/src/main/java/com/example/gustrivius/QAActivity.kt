@@ -19,8 +19,9 @@ class QAActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.MenuButton.setOnClickListener { view: View ->
-            val intent = Intent(this, QAActivity::class.java)
-            MenuLauncher.launch(intent)
+            /*val intent = Intent(this, QAActivity::class.java)
+            MenuLauncher.launch(intent)*/
+            finish()
         }
     }
 }

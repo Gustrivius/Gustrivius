@@ -20,8 +20,7 @@ class playActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.MenuButton.setOnClickListener { view: View ->
-            val intent = Intent(this, QAActivity::class.java)
-            MenuLauncher.launch(intent)
+            finish()
         }
     }
 

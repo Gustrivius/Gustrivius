@@ -3,4 +3,5 @@
 
     <string name="QA_button">Submit Q&amp;A</string>
     <string name="play_button">Play</string>
+    <string name= "QABack">Back to Menu</string>
 </resources>

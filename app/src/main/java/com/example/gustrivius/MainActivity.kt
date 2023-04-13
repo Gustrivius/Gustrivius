@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.QAButton.setOnClickListener { view: View ->
-            val intent = QAActivity.newIntent(this@MainActivity)
+            val intent = Intent(this, QAActivity::class.java)
             QALauncher.launch(intent)
         }
     }

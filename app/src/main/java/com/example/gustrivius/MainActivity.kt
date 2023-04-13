@@ -28,5 +28,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, QAActivity::class.java)
             QALauncher.launch(intent)
         }
+
+        binding.playButton.setOnClickListener { view: View ->
+            val intent = Intent(this, QAActivity::class.java)
+            QALauncher.launch(intent)
+        }
     }
 }

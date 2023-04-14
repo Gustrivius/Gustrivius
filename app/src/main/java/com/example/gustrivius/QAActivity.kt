@@ -3,14 +3,17 @@ package com.example.gustrivius
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.gustrivius.databinding.ActivityQaactivityBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
+private const val TAG = "QAActivity"
+val db = Firebase.firestore
+
 class QAActivity : AppCompatActivity() {
-    public val db = Firebase.firestore
     private lateinit var binding: ActivityQaactivityBinding
     private val MenuLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -26,4 +29,15 @@ class QAActivity : AppCompatActivity() {
             MenuLauncher.launch(intent)
         }
     }
+}
+
+private fun submit(question: Question) {
+    db.collection("questions")
+    .add(question)
+        .addOnSuccessListener { documentReference ->
+            Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+        }
+        .addOnFailureListener { e ->
+            Log.w(TAG, "Error adding document", e)
+        }
 }

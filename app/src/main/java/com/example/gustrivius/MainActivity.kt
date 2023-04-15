@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.playButton.setOnClickListener { view: View ->
-            val intent = Intent(this, QAActivity::class.java)
+            val intent = Intent(this, playActivity::class.java)
             QALauncher.launch(intent)
         }
     }

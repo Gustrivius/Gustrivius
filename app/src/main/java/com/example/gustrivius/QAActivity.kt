@@ -18,7 +18,6 @@ val db = Firebase.firestore
 
 class QAActivity : AppCompatActivity() {
     private lateinit var binding: ActivityQaactivityBinding
-    private lateinit var database: DatabaseReference
     private val MenuLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {result ->}
@@ -30,19 +29,16 @@ class QAActivity : AppCompatActivity() {
         var n = 1
 
         binding.SubmitButton.setOnClickListener { view: View ->
-            val text = binding.editText1.text.toString()
-            val correctAnswer = binding.editText2.text.toString()
-            val wrong1 = binding.editText3.text.toString()
-            val wrong2 = binding.editText4.text.toString()
-            val wrong3 = binding.editText5.text.toString()
-            database = FirebaseDatabase.getInstance().getReference("Questions")
-            val question = Question(n, text, correctAnswer, wrong1, wrong2,wrong3)
-            database.child(n.toString()).setValue(question).addOnSuccessListener {
-                binding.editText1.text.clear()
-                binding.editText2.text.clear()
-                binding.editText3.text.clear()
-                binding.editText4.text.clear()
-                binding.editText5.text.clear()
+            val questions = questions(
+                n,
+                binding.editText1.text.toString(),
+                binding.editText2.text.toString(),
+                binding.editText3.text.toString(),
+                binding.editText4.text.toString(),
+                binding.editText5.text.toString()
+            )
+            db.collection("questions").add(questions).addOnSuccessListener {
+                documentReference ->
                 n++
                 Toast.makeText(this, "Successfully submit the question, keep submit next question", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {
@@ -56,15 +52,5 @@ class QAActivity : AppCompatActivity() {
             finish()
         }
     }
-}
 
-private fun submit(question:Question) {
-    db.collection("questions")
-    .add(question)
-        .addOnSuccessListener { documentReference ->
-            Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-        }
-        .addOnFailureListener { e ->
-            Log.w(TAG, "Error adding document", e)
-        }
 }

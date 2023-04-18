@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private val QALauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {result ->}
+    public var username = "defaultUsername";
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +33,10 @@ class MainActivity : AppCompatActivity() {
         binding.playButton.setOnClickListener { view: View ->
             val intent = Intent(this, playActivity::class.java)
             QALauncher.launch(intent)
+        }
+
+        binding.usernameButton.setOnClickListener {
+            username = binding.usernameText.text.toString()
         }
     }
 }

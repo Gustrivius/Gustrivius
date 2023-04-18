@@ -29,5 +29,28 @@
             android:text="@string/play_button"
             />
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Username_Box"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000" />
+    <EditText
+        android:id="@+id/usernameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#CCCCCC"
+        android:ems="10"
+        android:inputType="text" >
+        <requestFocus />
+    </EditText>
+    <Button
+        android:id="@+id/username_button"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Submit_Username"
+        />
+
 
 </LinearLayout>

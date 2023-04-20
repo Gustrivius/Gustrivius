@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.gustrivius.databinding.ActivityMainBinding
 import androidx.activity.viewModels
@@ -29,8 +30,11 @@ class MainActivity : AppCompatActivity() {
             QALauncher.launch(intent)
         }
 
+        //Toast.makeText(this, intent.getSerializableExtra("Q_id").toString(), Toast.LENGTH_SHORT).show()
+        var QuestionID = intent.getSerializableExtra("Q_id")
         binding.playButton.setOnClickListener { view: View ->
-            val intent = Intent(this, QAActivity::class.java)
+            val intent = Intent(this, playActivity::class.java)
+            intent.putExtra("questionID", QuestionID)
             QALauncher.launch(intent)
         }
     }

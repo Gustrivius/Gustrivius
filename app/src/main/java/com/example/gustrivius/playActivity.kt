@@ -14,14 +14,17 @@ class playActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) {result ->}
 
+    private var currentIndex = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityPlayBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.MenuButton.setOnClickListener { view: View ->
-            finish()
+        binding.nextButton.setOnClickListener()
+
+        /*binding.MenuButton.setOnClickListener { view: View ->
+            finish()*/
         }
     }
-
-}

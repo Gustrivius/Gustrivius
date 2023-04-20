@@ -27,6 +27,8 @@ class QAActivity : AppCompatActivity() {
         binding = ActivityQaactivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         var n = 1
+        var Q_id : ArrayList<String> = ArrayList()
+        //var Q_id = intent.getStringExtra("Q_id")
 
         binding.SubmitButton.setOnClickListener { view: View ->
             val questions = questions(
@@ -40,6 +42,7 @@ class QAActivity : AppCompatActivity() {
             db.collection("questions").add(questions).addOnSuccessListener {
                 documentReference ->
                 n++
+                Q_id.add(documentReference.id)
                 Toast.makeText(this, "Successfully submit the question, keep submit next question", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {
                 Toast.makeText(this, "Submit the question failed, please let the designers know", Toast.LENGTH_SHORT).show()
@@ -47,9 +50,9 @@ class QAActivity : AppCompatActivity() {
         }
 
         binding.MenuButton.setOnClickListener { view: View ->
-            /*val intent = Intent(this, QAActivity::class.java)
-            MenuLauncher.launch(intent)*/
-            finish()
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("Q_id", Q_id)
+            MenuLauncher.launch(intent)
         }
     }
 

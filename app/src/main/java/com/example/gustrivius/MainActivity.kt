@@ -30,8 +30,8 @@ class MainActivity : AppCompatActivity() {
             QALauncher.launch(intent)
         }
 
-        //Toast.makeText(this, intent.getSerializableExtra("Q_id").toString(), Toast.LENGTH_SHORT).show()
         var QuestionID = intent.getSerializableExtra("Q_id")
+        //Toast.makeText(this, intent.getSerializableExtra("Q_id").toString(), Toast.LENGTH_SHORT).show()
         binding.playButton.setOnClickListener { view: View ->
             val intent = Intent(this, playActivity::class.java)
             intent.putExtra("questionID", QuestionID)

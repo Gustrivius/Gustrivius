@@ -4,15 +4,21 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.gustrivius.databinding.ActivityPlayBinding
 import com.example.gustrivius.databinding.ActivityQaactivityBinding
+import com.google.firebase.firestore.FirebaseFirestore
+
+var QID = ArrayList<String>()
 
 class playActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPlayBinding
     private val MenuLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {result ->}
+
+    private var currentIndex = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +48,10 @@ class playActivity : AppCompatActivity() {
                     //Toast.makeText(this, DocumentSnapShot.get("text").toString(), Toast.LENGTH_SHORT).show()
                 }
             }.addOnFailureListener { exception -> Toast.makeText(this, "error", Toast.LENGTH_SHORT).show() }
+
+        binding.nextButton.setOnClickListener {
+            currentIndex = (currentIndex + 1) % QID.size
+        }
 
         /*binding.MenuButton.setOnClickListener { view: View ->
             finish()

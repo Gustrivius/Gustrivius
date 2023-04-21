@@ -48,10 +48,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/question_text"
         android:text="A"
-        android:background="#0091EA"
+        android:backgroundTint="#0091EA"
         android:textColor="#fff"
-        android:padding="8dp"
-        android:layout_marginBottom="24dp"
+        android:padding="12dp"
+        android:layout_marginBottom="20dp"
         android:id="@+id/choice_1"/>
 
     <Button
@@ -59,10 +59,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_1"
         android:text="B"
-        android:background="#0091EA"
+        android:backgroundTint="#0091EA"
         android:textColor="#fff"
-        android:padding="8dp"
-        android:layout_marginBottom="24dp"
+        android:padding="12dp"
+        android:layout_marginBottom="20dp"
         android:id="@+id/choice_2"/>
 
     <Button
@@ -70,10 +70,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_2"
         android:text="C"
-        android:background="#0091EA"
+        android:backgroundTint="#0091EA"
         android:textColor="#fff"
-        android:padding="8dp"
-        android:layout_marginBottom="24dp"
+        android:padding="12dp"
+        android:layout_marginBottom="20dp"
         android:id="@+id/choice_3"/>
 
     <Button
@@ -81,10 +81,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_3"
         android:text="D"
-        android:background="#0091EA"
+        android:backgroundTint="#0091EA"
         android:textColor="#fff"
-        android:padding="8dp"
-        android:layout_marginBottom="24dp"
+        android:padding="12dp"
+        android:layout_marginBottom="20dp"
         android:id="@+id/choice_4"/>
 
     <Button

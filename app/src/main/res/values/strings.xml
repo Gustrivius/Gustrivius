@@ -5,6 +5,7 @@
     <string name="play_button">Play</string>
     <string name= "QABack">Back to Menu</string>
     <string name= "Submit">Submit</string>
+    <string name= "Submit_Username">Submit</string>
 
     <string name="Question_Box">Type your question:</string>
     <string name="Answers">Answers:</string>
@@ -12,5 +13,5 @@
     <string name="Answer_Box2">Wrong 1:</string>
     <string name="Answer_Box3">Wrong 2:</string>
     <string name="Answer_Box4">Wrong 3:</string>
-
+    <string name="Username_Box">Username</string>
 </resources>

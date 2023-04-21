@@ -47,7 +47,7 @@ class playActivity : AppCompatActivity()  {
             click--;
             AlertDialog.Builder (this)
                 .setTitle("Done")
-                .setMessage("Congratulation, you answered all the questions, the score is: $correct_score")
+                .setMessage("Congratulations, you answered all the questions, the score is: $correct_score")
                 .setPositiveButton("Back to menu") {dialogInterface, i -> finish()}
                 .setCancelable(false)
                 .show()
@@ -77,6 +77,10 @@ class playActivity : AppCompatActivity()  {
                     ) {
                         correct_score++;
                         binding.score.text = correct_score.toString();
+                        Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
+                    }
+                    else {
+                        Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
                     click++;
                     moveToNext()
@@ -88,6 +92,10 @@ class playActivity : AppCompatActivity()  {
                     ) {
                         correct_score++;
                         binding.score.text = correct_score.toString();
+                        Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
+                    }
+                    else {
+                        Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
                     click++;
                     moveToNext()
@@ -99,6 +107,10 @@ class playActivity : AppCompatActivity()  {
                     ) {
                         correct_score++;
                         binding.score.text = correct_score.toString();
+                        Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
+                    }
+                    else {
+                        Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
                     click++;
                     moveToNext()
@@ -110,6 +122,10 @@ class playActivity : AppCompatActivity()  {
                     ) {
                         correct_score++;
                         binding.score.text = correct_score.toString();
+                        Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
+                    }
+                    else {
+                        Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
                     click++;
                     moveToNext()

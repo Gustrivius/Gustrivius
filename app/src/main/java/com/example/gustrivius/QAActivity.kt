@@ -26,13 +26,11 @@ class QAActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityQaactivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        var n = 1
         var Q_id : ArrayList<String> = ArrayList()
         //var Q_id = intent.getStringExtra("Q_id")
 
         binding.SubmitButton.setOnClickListener { view: View ->
             val questions = questions(
-                n,
                 binding.editText1.text.toString(),
                 binding.editText2.text.toString(),
                 binding.editText3.text.toString(),
@@ -41,7 +39,6 @@ class QAActivity : AppCompatActivity() {
             )
             db.collection("questions").add(questions).addOnSuccessListener {
                 documentReference ->
-                n++
                 Q_id.add(documentReference.id)
                 Toast.makeText(this, "Successfully submit the question, keep submit next question", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {

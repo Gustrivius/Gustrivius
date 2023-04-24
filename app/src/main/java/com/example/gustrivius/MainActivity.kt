@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         binding.playButton.setOnClickListener { view: View ->
             val intent = Intent(this, playActivity::class.java)
             intent.putExtra("questionID", QuestionID)
+            intent.putExtra("name", username)
             QALauncher.launch(intent)
         }
 

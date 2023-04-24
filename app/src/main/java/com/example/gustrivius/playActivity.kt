@@ -45,6 +45,12 @@ class playActivity : AppCompatActivity()  {
     fun moveToNext() {
         if (click == QID.size) {
             click--;
+
+            val name = intent.getSerializableExtra("name").toString()
+            val user = user(name, correct_score)
+            db.collection("leaderboard").add(user).addOnSuccessListener {
+            }
+
             AlertDialog.Builder (this)
                 .setTitle("Done")
                 .setMessage("Congratulations, you answered all the questions, the score is: $correct_score")

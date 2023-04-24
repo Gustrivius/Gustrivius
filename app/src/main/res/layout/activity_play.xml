@@ -16,8 +16,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Score"
+        android:text="@string/Score_text"
         android:textSize="20sp"
+        android:textColor="@color/teal_700"
         android:layout_alignParentLeft="true"
         android:id="@+id/score_text"
         />
@@ -27,6 +28,7 @@
         android:layout_height="wrap_content"
         android:text="0"
         android:textSize="20sp"
+        android:textColor="@color/teal_700"
         android:layout_alignParentRight="true"
         android:id="@+id/score"
         />
@@ -34,8 +36,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:text="Question"
+        android:text="@string/Question_text"
         android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_below="@+id/score_text"
         android:padding="8dp"
         android:layout_marginTop="100dp"
@@ -48,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/question_text"
         android:text="A"
-        android:backgroundTint="#0091EA"
+        android:backgroundTint="#FFDAB9"
         android:textColor="#fff"
         android:padding="12dp"
         android:layout_marginBottom="20dp"
@@ -59,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_1"
         android:text="B"
-        android:backgroundTint="#0091EA"
+        android:backgroundTint="#DEB9"
         android:textColor="#fff"
         android:padding="12dp"
         android:layout_marginBottom="20dp"
@@ -70,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_2"
         android:text="C"
-        android:backgroundTint="#0091EA"
+        android:backgroundTint="#D2B48C"
         android:textColor="#fff"
         android:padding="12dp"
         android:layout_marginBottom="20dp"
@@ -81,13 +84,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_3"
         android:text="D"
-        android:backgroundTint="#0091EA"
+        android:backgroundTint="#BC8F5F"
         android:textColor="#fff"
         android:padding="12dp"
         android:layout_marginBottom="20dp"
         android:id="@+id/choice_4"/>
 
-    <Button
+    <!--<Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_4"
@@ -97,7 +100,7 @@
         android:textColor="#fff"
         android:padding="8dp"
         android:layout_marginBottom="24dp"
-        android:id="@+id/next_button"/>
+        android:id="@+id/next_button"/>-->
 
 
     <!--<LinearLayout

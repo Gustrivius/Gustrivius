@@ -15,7 +15,7 @@ import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 var QID = ArrayList<String>()
 var correct_score = 0
-var click= 0;
+var click= 0
 
 class playActivity : AppCompatActivity()  {
     val db = Firebase.firestore
@@ -40,11 +40,11 @@ class playActivity : AppCompatActivity()  {
 
         //All the code for getting data from Firebase
         //while(true) {
-        moveToNext();
+        moveToNext()
     }
     fun moveToNext() {
         if (click == QID.size) {
-            click--;
+            click--
             AlertDialog.Builder (this)
                 .setTitle("Done")
                 .setMessage("Congratulations, you answered all the questions, the score is: $correct_score")
@@ -75,14 +75,13 @@ class playActivity : AppCompatActivity()  {
                     if (binding.choice1.text == DocumentSnapShot.get("correctAnswer")
                             .toString()
                     ) {
-                        correct_score++;
-                        binding.score.text = correct_score.toString();
+                        correct_score++
+                        binding.score.text = correct_score.toString()
                         Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
-                    }
-                    else {
+                    } else {
                         Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
-                    click++;
+                    click++
                     moveToNext()
                 }
 
@@ -90,30 +89,28 @@ class playActivity : AppCompatActivity()  {
                     if (binding.choice2.text == DocumentSnapShot.get("correctAnswer")
                             .toString()
                     ) {
-                        correct_score++;
-                        binding.score.text = correct_score.toString();
+                        correct_score++
+                        binding.score.text = correct_score.toString()
                         Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
-                    }
-                    else {
+                    } else {
                         Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
-                    click++;
+                    click++
                     moveToNext()
                 }
-            }.addOnFailureListener { exception -> Toast.makeText(this, "error", Toast.LENGTH_SHORT).show() }
 
                 binding.choice3.setOnClickListener { view: View ->
                     if (binding.choice3.text == DocumentSnapShot.get("correctAnswer")
                             .toString()
                     ) {
-                        correct_score++;
-                        binding.score.text = correct_score.toString();
+                        correct_score++
+                        binding.score.text = correct_score.toString()
                         Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
                     }
                     else {
                         Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
-                    click++;
+                    click++
                     moveToNext()
                 }
 
@@ -121,24 +118,17 @@ class playActivity : AppCompatActivity()  {
                     if (binding.choice4.text == DocumentSnapShot.get("correctAnswer")
                             .toString()
                     ) {
-                        correct_score++;
-                        binding.score.text = correct_score.toString();
+                        correct_score++
+                        binding.score.text = correct_score.toString()
                         Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
                     }
                     else {
                         Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
-                    click++;
+                    click++
                     moveToNext()
                 }
             }
-        }.addOnFailureListener { exception ->
-            Toast.makeText(
-                this,
-                "error",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
+        }.addOnFailureListener { exception -> Toast.makeText(this, "error", Toast.LENGTH_SHORT).show() }
     }
-
 }

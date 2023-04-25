@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_1"
         android:text="B"
-        android:backgroundTint="#DEB9"
+        android:backgroundTint="#E8BFA1"
         android:textColor="#fff"
         android:padding="12dp"
         android:layout_marginBottom="20dp"

@@ -16,8 +16,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Score"
+        android:text="@string/Score_text"
         android:textSize="20sp"
+        android:textColor="@color/teal_700"
         android:layout_alignParentLeft="true"
         android:id="@+id/score_text"
         />
@@ -27,6 +28,7 @@
         android:layout_height="wrap_content"
         android:text="0"
         android:textSize="20sp"
+        android:textColor="@color/teal_700"
         android:layout_alignParentRight="true"
         android:id="@+id/score"
         />
@@ -34,8 +36,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:text="Question"
+        android:text="@string/Question_text"
         android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_below="@+id/score_text"
         android:padding="8dp"
         android:layout_marginTop="100dp"
@@ -48,10 +51,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/question_text"
         android:text="A"
-        android:background="#0091EA"
+        android:backgroundTint="#FFDAB9"
         android:textColor="#fff"
-        android:padding="8dp"
-        android:layout_marginBottom="24dp"
+        android:padding="12dp"
+        android:layout_marginBottom="20dp"
         android:id="@+id/choice_1"/>
 
     <Button
@@ -59,10 +62,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_1"
         android:text="B"
-        android:background="#0091EA"
+        android:backgroundTint="#E8BFA1"
         android:textColor="#fff"
-        android:padding="8dp"
-        android:layout_marginBottom="24dp"
+        android:padding="12dp"
+        android:layout_marginBottom="20dp"
         android:id="@+id/choice_2"/>
 
     <Button
@@ -70,10 +73,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_2"
         android:text="C"
-        android:background="#0091EA"
+        android:backgroundTint="#D2B48C"
         android:textColor="#fff"
-        android:padding="8dp"
-        android:layout_marginBottom="24dp"
+        android:padding="12dp"
+        android:layout_marginBottom="20dp"
         android:id="@+id/choice_3"/>
 
     <Button
@@ -81,28 +84,40 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_3"
         android:text="D"
-        android:background="#0091EA"
+        android:backgroundTint="#BC8F5F"
+        android:textColor="#fff"
+        android:padding="12dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/choice_4"/>
+
+    <!--<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/choice_4"
+        android:text="Next"
+        android:layout_alignParentRight="true"
+        android:background="#00ffff"
         android:textColor="#fff"
         android:padding="8dp"
         android:layout_marginBottom="24dp"
-        android:id="@+id/choice_4"/>
+        android:id="@+id/next_button"/>-->
 
+
+    <!--<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/MenuButton"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="@string/QABack"
+            android:textSize="12dp"
+            />
+
+    </LinearLayout>-->
+
+<!--    Ctrl+/ (line comment) or Ctrl+shift+/ (block comment) -->
 
 </RelativeLayout>
-
-
-<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:gravity="center"
-android:orientation="vertical">
-<Button
-    android:id="@+id/MenuButton"
-    android:layout_width="140dp"
-    android:layout_height="wrap_content"
-    android:text="Next"
-    android:textSize="12dp" />
-
-</LinearLayout>    -->

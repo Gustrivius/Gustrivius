@@ -15,7 +15,7 @@ import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 var QID = ArrayList<String>()
 var correct_score = 0
-var click= 0;
+var click= 0
 
 class playActivity : AppCompatActivity()  {
     val db = Firebase.firestore
@@ -44,7 +44,7 @@ class playActivity : AppCompatActivity()  {
     }
     fun moveToNext() {
         if (click == QID.size) {
-            click--;
+            click--
 
             val name = intent.getSerializableExtra("name").toString()
             val user = user(name, correct_score)
@@ -81,14 +81,14 @@ class playActivity : AppCompatActivity()  {
                     if (binding.choice1.text == DocumentSnapShot.get("correctAnswer")
                             .toString()
                     ) {
-                        correct_score++;
-                        binding.score.text = correct_score.toString();
+                        correct_score++
+                        binding.score.text = correct_score.toString()
                         Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
                     }
                     else {
                         Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
-                    click++;
+                    click++
                     moveToNext()
                 }
 
@@ -96,14 +96,14 @@ class playActivity : AppCompatActivity()  {
                     if (binding.choice2.text == DocumentSnapShot.get("correctAnswer")
                             .toString()
                     ) {
-                        correct_score++;
-                        binding.score.text = correct_score.toString();
+                        correct_score++
+                        binding.score.text = correct_score.toString()
                         Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
                     }
                     else {
                         Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
-                    click++;
+                    click++
                     moveToNext()
                 }
 
@@ -111,14 +111,14 @@ class playActivity : AppCompatActivity()  {
                     if (binding.choice3.text == DocumentSnapShot.get("correctAnswer")
                             .toString()
                     ) {
-                        correct_score++;
-                        binding.score.text = correct_score.toString();
+                        correct_score++
+                        binding.score.text = correct_score.toString()
                         Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
                     }
                     else {
                         Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
-                    click++;
+                    click++
                     moveToNext()
                 }
 
@@ -126,14 +126,14 @@ class playActivity : AppCompatActivity()  {
                     if (binding.choice4.text == DocumentSnapShot.get("correctAnswer")
                             .toString()
                     ) {
-                        correct_score++;
-                        binding.score.text = correct_score.toString();
+                        correct_score++
+                        binding.score.text = correct_score.toString()
                         Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
                     }
                     else {
                         Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
-                    click++;
+                    click++
                     moveToNext()
                 }
             }

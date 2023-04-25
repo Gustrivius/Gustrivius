@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.gustrivius.databinding.ActivityMainBinding
 import androidx.activity.viewModels
+import com.google.firebase.firestore.AggregateSource
 
 private lateinit var QA_Button: Button
 
@@ -44,7 +45,16 @@ class MainActivity : AppCompatActivity() {
 
         binding.usernameButton.setOnClickListener {
             username = binding.usernameText.text.toString()
-            binding.playButton.isEnabled = true;
+            db.collection("questions").count().get(AggregateSource.SERVER).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    if (task.result.count == 0L) {
+                        Toast.makeText(this, "Please click Q&A button and add questions", Toast.LENGTH_SHORT).show()
+                    }
+                    else {
+                        binding.playButton.isEnabled = true;
+                    }
+                }
+            }
         }
     }
 }

@@ -40,11 +40,17 @@ class playActivity : AppCompatActivity()  {
 
         //All the code for getting data from Firebase
         //while(true) {
-        moveToNext()
+        moveToNext();
     }
     fun moveToNext() {
         if (click == QID.size) {
             click--
+
+            val name = intent.getSerializableExtra("name").toString()
+            val user = user(name, correct_score)
+            db.collection("leaderboard").add(user).addOnSuccessListener {
+            }
+
             AlertDialog.Builder (this)
                 .setTitle("Done")
                 .setMessage("Congratulations, you answered all the questions, the score is: $correct_score")
@@ -78,7 +84,8 @@ class playActivity : AppCompatActivity()  {
                         correct_score++
                         binding.score.text = correct_score.toString()
                         Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
-                    } else {
+                    }
+                    else {
                         Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
                     click++
@@ -92,7 +99,8 @@ class playActivity : AppCompatActivity()  {
                         correct_score++
                         binding.score.text = correct_score.toString()
                         Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show()
-                    } else {
+                    }
+                    else {
                         Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
                     click++
@@ -129,6 +137,13 @@ class playActivity : AppCompatActivity()  {
                     moveToNext()
                 }
             }
-        }.addOnFailureListener { exception -> Toast.makeText(this, "error", Toast.LENGTH_SHORT).show() }
+        }.addOnFailureListener { exception ->
+            Toast.makeText(
+                this,
+                "error",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
+
 }

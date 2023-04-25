@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.playButton.isEnabled = false;
+
         binding.QAButton.setOnClickListener { view: View ->
             val intent = Intent(this, QAActivity::class.java)
             QALauncher.launch(intent)
@@ -36,11 +38,13 @@ class MainActivity : AppCompatActivity() {
         binding.playButton.setOnClickListener { view: View ->
             val intent = Intent(this, playActivity::class.java)
             intent.putExtra("questionID", QuestionID)
+            intent.putExtra("name", username)
             QALauncher.launch(intent)
         }
 
         binding.usernameButton.setOnClickListener {
             username = binding.usernameText.text.toString()
+            binding.playButton.isEnabled = true;
         }
     }
 }

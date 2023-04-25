@@ -18,16 +18,18 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:text="@string/QA_button"
+            android:backgroundTint="#7B98BE"
+            android:textColor="#fff"
             />
 
     </LinearLayout>
 
-        <Button
-            android:id="@+id/play_button"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:text="@string/play_button"
-            />
+    <Button
+        android:id="@+id/play_button"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="@string/play_button"
+        android:textColor="#fff" />
 
     <TextView
         android:id="@+id/textView1"
@@ -48,6 +50,8 @@
     <Button
         android:id="@+id/username_button"
         android:layout_width="140dp"
+        android:backgroundTint="#A9A9A9"
+        android:textColor="#fff"
         android:layout_height="wrap_content"
         android:text="@string/Submit_Username"
         />

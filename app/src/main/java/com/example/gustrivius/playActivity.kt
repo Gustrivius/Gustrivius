@@ -57,6 +57,9 @@ class playActivity : AppCompatActivity()  {
                 .setPositiveButton("Back to menu") {dialogInterface, i -> finish()}
                 .setCancelable(false)
                 .show()
+
+            val intent = Intent(this, LeaderboardActivity::class.java)
+            MenuLauncher.launch(intent)
         }
         val doc = db.collection("questions").document(QID[click])
         FirebaseFirestore.getInstance().collection("questions").get()

@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.gustrivius.databinding.ActivityQaactivityBinding
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -23,22 +26,31 @@ class QAActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityQaactivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        var Q_id : ArrayList<String> = ArrayList()
+        //var Q_id = intent.getStringExtra("Q_id")
+
+        binding.SubmitButton.setOnClickListener { view: View ->
+            val questions = questions(
+                binding.editText1.text.toString(),
+                binding.editText2.text.toString(),
+                binding.editText3.text.toString(),
+                binding.editText4.text.toString(),
+                binding.editText5.text.toString()
+            )
+            db.collection("questions").add(questions).addOnSuccessListener {
+                documentReference ->
+                Q_id.add(documentReference.id)
+                Toast.makeText(this, "Successfully submit the question, keep submit next question", Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener {
+                Toast.makeText(this, "Submit the question failed, please let the designers know", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         binding.MenuButton.setOnClickListener { view: View ->
-            /*val intent = Intent(this, QAActivity::class.java)
-            MenuLauncher.launch(intent)*/
-            finish()
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("Q_id", Q_id)
+            MenuLauncher.launch(intent)
         }
     }
-}
 
-private fun submit(question: Question) {
-    db.collection("questions")
-    .add(question)
-        .addOnSuccessListener { documentReference ->
-            Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-        }
-        .addOnFailureListener { e ->
-            Log.w(TAG, "Error adding document", e)
-        }
 }

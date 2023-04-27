@@ -29,9 +29,9 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:text="@string/play_button"
-            android:backgroundTint="#88BFD8"
             android:textColor="#fff"
             />
+<!--    android:backgroundTint="#88BFD8" ^^ -->
 
     <TextView
         android:id="@+id/textView1"

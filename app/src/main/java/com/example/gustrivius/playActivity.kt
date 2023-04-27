@@ -51,15 +51,18 @@ class playActivity : AppCompatActivity()  {
             db.collection("leaderboard").add(user).addOnSuccessListener {
             }
 
+
             AlertDialog.Builder (this)
                 .setTitle("Done")
                 .setMessage("Congratulations, you answered all the questions, the score is: $correct_score")
-                .setPositiveButton("Back to menu") {dialogInterface, i -> finish()}
+                .setPositiveButton("To Leaderboard") {dialogInterface, i ->
+                    val intent = Intent(this, LeaderboardActivity::class.java)
+                    intent.putExtra("name", name)
+                    MenuLauncher.launch(intent)
+                }
                 .setCancelable(false)
                 .show()
 
-            val intent = Intent(this, LeaderboardActivity::class.java)
-            MenuLauncher.launch(intent)
         }
         val doc = db.collection("questions").document(QID[click])
         FirebaseFirestore.getInstance().collection("questions").get()

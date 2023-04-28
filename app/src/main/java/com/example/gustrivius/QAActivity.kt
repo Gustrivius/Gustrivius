@@ -44,6 +44,12 @@ class QAActivity : AppCompatActivity() {
             }.addOnFailureListener {
                 Toast.makeText(this, "Submit the question failed, please let the designers know", Toast.LENGTH_SHORT).show()
             }
+
+            binding.editText1.getText().clear()
+            binding.editText2.getText().clear()
+            binding.editText3.getText().clear()
+            binding.editText4.getText().clear()
+            binding.editText5.getText().clear()
         }
 
         binding.MenuButton.setOnClickListener { view: View ->

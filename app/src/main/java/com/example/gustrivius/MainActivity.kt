@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         binding.usernameButton.setOnClickListener {
             username = binding.usernameText.text.toString()
             binding.playButton.isEnabled = true;
+            binding.usernameText.getText().clear()
         }
     }
 }

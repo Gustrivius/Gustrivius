@@ -18,6 +18,8 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:text="@string/QA_button"
+            android:backgroundTint="#88BFD8"
+            android:textColor="#fff"
             />
 
     </LinearLayout>
@@ -27,8 +29,6 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:text="@string/play_button"
-            android:backgroundTint="#88BFD8"
-            android:textColor="#fff"
             />
 
     <TextView
@@ -52,6 +52,8 @@
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:text="@string/Submit_Username"
+        android:backgroundTint="#555555"
+        android:textColor="#fff"
         />
 
 

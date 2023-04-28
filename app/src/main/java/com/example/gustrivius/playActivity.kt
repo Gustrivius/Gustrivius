@@ -21,10 +21,9 @@ import kotlin.collections.HashSet
 
 var QID = HashSet<String>()
 var correct_score = 0
-
+var click = 0
 
 class playActivity : AppCompatActivity()  {
-    var click= 0
     val db = Firebase.firestore
     private lateinit var binding: ActivityPlayBinding
     private val MenuLauncher = registerForActivityResult(
@@ -38,7 +37,6 @@ class playActivity : AppCompatActivity()  {
         setContentView(binding.root)
 
         var ids = intent.getSerializableExtra("questionID") as ArrayList<String>
-
         for (i in 0..(ids.size - 1)) {
             QID.add(ids[i])
         }
@@ -49,7 +47,6 @@ class playActivity : AppCompatActivity()  {
 
         moveToNext()
     }
-
     fun moveToNext() {
         var duration : Long = TimeUnit.SECONDS.toMillis(10)
 
@@ -87,12 +84,15 @@ class playActivity : AppCompatActivity()  {
             db.collection("leaderboard").add(user).addOnSuccessListener {
             }
 
+
             AlertDialog.Builder (this)
                 .setTitle("Done")
                 .setMessage("Congratulations, you answered all the questions, the score is: $correct_score")
-                .setPositiveButton("Back to menu") {dialogInterface, i ->
+                .setPositiveButton("To Leaderboard") {dialogInterface, i ->
                     correct_score = 0
-                    finish()
+                    val intent = Intent(this, LeaderboardActivity::class.java)
+                    intent.putExtra("name", name)
+                    MenuLauncher.launch(intent)
                 }
                 .setCancelable(false)
                 .show()

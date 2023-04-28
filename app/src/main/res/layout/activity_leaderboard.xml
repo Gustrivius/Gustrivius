@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".LeaderboardActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/WinnertextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="23dp"
+            android:text="Winner"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#8aff00" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="23dp"
+            android:text="Winner"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#8aff00" />
+
+        <Button
+            android:id="@+id/MenuButton"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+
+            android:text="@string/QABack"
+            android:textSize="12sp"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

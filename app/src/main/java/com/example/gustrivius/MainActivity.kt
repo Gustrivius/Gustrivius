@@ -44,6 +44,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.usernameButton.setOnClickListener {
             username = binding.usernameText.text.toString()
+            binding.playButton.isEnabled = true;
+            binding.usernameText.getText().clear()
+
             db.collection("questions").count().get(AggregateSource.SERVER).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     if (task.result.count == 0L) {

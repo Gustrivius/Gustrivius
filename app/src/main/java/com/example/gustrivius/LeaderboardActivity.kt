@@ -28,6 +28,7 @@ class LeaderboardActivity : AppCompatActivity() {
         binding.MenuButton.setOnClickListener { view: View ->
             val intent = Intent(this, MainActivity::class.java)
             learderLauncher.launch(intent)
+            //finish()
         }
     }
 }

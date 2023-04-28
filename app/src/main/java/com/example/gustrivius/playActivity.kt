@@ -17,9 +17,11 @@ import com.google.firebase.ktx.Firebase
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
+import kotlin.collections.HashSet
 
-var QID = ArrayList<String>()
+var QID = HashSet<String>()
 var correct_score = 0
+
 
 class playActivity : AppCompatActivity()  {
     var click= 0
@@ -36,10 +38,12 @@ class playActivity : AppCompatActivity()  {
         setContentView(binding.root)
 
         var ids = intent.getSerializableExtra("questionID") as ArrayList<String>
+
         for (i in 0..(ids.size - 1)) {
             QID.add(ids[i])
         }
-        QID.shuffle()
+
+        QID.shuffled()
 
         //var questionTextView = findViewById(R.id.question_text);
 
@@ -86,12 +90,15 @@ class playActivity : AppCompatActivity()  {
             AlertDialog.Builder (this)
                 .setTitle("Done")
                 .setMessage("Congratulations, you answered all the questions, the score is: $correct_score")
-                .setPositiveButton("Back to menu") {dialogInterface, i -> finish()}
+                .setPositiveButton("Back to menu") {dialogInterface, i ->
+                    correct_score = 0
+                    finish()
+                }
                 .setCancelable(false)
                 .show()
 
         }
-        val doc = db.collection("questions").document(QID[click])
+        val doc = db.collection("questions").document(QID.elementAt(click))
         FirebaseFirestore.getInstance().collection("questions").get()
         doc.get().addOnSuccessListener { DocumentSnapShot ->
             //val questions = documentSnapshot.toObject<questions>()

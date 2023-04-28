@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, QAActivity::class.java)
             QALauncher.launch(intent)
         }
-
         var QuestionID = intent.getSerializableExtra("Q_id")
         //Toast.makeText(this, intent.getSerializableExtra("Q_id").toString(), Toast.LENGTH_SHORT).show()
         binding.playButton.setOnClickListener { view: View ->

@@ -3,6 +3,7 @@ package com.example.gustrivius
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -13,9 +14,14 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
-var QID = ArrayList<String>()
+import java.util.*
+import java.util.concurrent.TimeUnit
+import kotlin.collections.ArrayList
+import kotlin.collections.HashSet
+
+var QID = HashSet<String>()
 var correct_score = 0
-var click= 0
+var click = 0
 
 class playActivity : AppCompatActivity()  {
     val db = Firebase.firestore
@@ -34,16 +40,43 @@ class playActivity : AppCompatActivity()  {
         for (i in 0..(ids.size - 1)) {
             QID.add(ids[i])
         }
-        QID.shuffle()
+
+        QID.shuffled()
 
         //var questionTextView = findViewById(R.id.question_text);
 
-        //All the code for getting data from Firebase
-        //while(true) {
-        moveToNext();
+        moveToNext()
     }
     fun moveToNext() {
+        var duration : Long = TimeUnit.SECONDS.toMillis(10)
+
+        var timer = object : CountDownTimer(duration, 1000) {
+            override fun onTick(millisUnitFinished: Long) {
+                var sDuration: String = String.format(
+                    Locale.ENGLISH,
+                    "%02d:%02d",
+                    TimeUnit.MILLISECONDS.toMinutes(millisUnitFinished),
+                    TimeUnit.MILLISECONDS.toSeconds(millisUnitFinished) - TimeUnit.MINUTES.toSeconds(
+                        TimeUnit.MILLISECONDS.toMinutes(millisUnitFinished)
+                    )
+                )
+                binding.timer.text = sDuration
+            }
+
+            override fun onFinish() {
+                //this.cancel()
+                if (click < QID.size){
+                    click++
+                    moveToNext()
+                }
+                else {
+                    moveToNext()
+                }
+            }
+        }.start()
+
         if (click == QID.size) {
+            (timer as CountDownTimer?)?.cancel()
             click--
 
             val name = intent.getSerializableExtra("name").toString()
@@ -51,14 +84,21 @@ class playActivity : AppCompatActivity()  {
             db.collection("leaderboard").add(user).addOnSuccessListener {
             }
 
+
             AlertDialog.Builder (this)
                 .setTitle("Done")
                 .setMessage("Congratulations, you answered all the questions, the score is: $correct_score")
-                .setPositiveButton("Back to menu") {dialogInterface, i -> finish()}
+                .setPositiveButton("To Leaderboard") {dialogInterface, i ->
+                    correct_score = 0
+                    val intent = Intent(this, LeaderboardActivity::class.java)
+                    intent.putExtra("name", name)
+                    MenuLauncher.launch(intent)
+                }
                 .setCancelable(false)
                 .show()
+
         }
-        val doc = db.collection("questions").document(QID[click])
+        val doc = db.collection("questions").document(QID.elementAt(click))
         FirebaseFirestore.getInstance().collection("questions").get()
         doc.get().addOnSuccessListener { DocumentSnapShot ->
             //val questions = documentSnapshot.toObject<questions>()
@@ -89,6 +129,7 @@ class playActivity : AppCompatActivity()  {
                         Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
                     click++
+                    (timer as CountDownTimer?)?.cancel()
                     moveToNext()
                 }
 
@@ -104,6 +145,7 @@ class playActivity : AppCompatActivity()  {
                         Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
                     click++
+                    (timer as CountDownTimer?)?.cancel()
                     moveToNext()
                 }
 
@@ -119,6 +161,7 @@ class playActivity : AppCompatActivity()  {
                         Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
                     click++
+                    (timer as CountDownTimer?)?.cancel()
                     moveToNext()
                 }
 
@@ -134,6 +177,7 @@ class playActivity : AppCompatActivity()  {
                         Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     }
                     click++
+                    (timer as CountDownTimer?)?.cancel()
                     moveToNext()
                 }
             }

@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, QAActivity::class.java)
             QALauncher.launch(intent)
         }
-
         var QuestionID = intent.getSerializableExtra("Q_id")
         //Toast.makeText(this, intent.getSerializableExtra("Q_id").toString(), Toast.LENGTH_SHORT).show()
         binding.playButton.setOnClickListener { view: View ->
@@ -45,6 +44,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.usernameButton.setOnClickListener {
             username = binding.usernameText.text.toString()
+            binding.playButton.isEnabled = true;
+            binding.usernameText.getText().clear()
+
             db.collection("questions").count().get(AggregateSource.SERVER).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     if (task.result.count == 0L) {

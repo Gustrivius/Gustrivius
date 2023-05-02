@@ -13,6 +13,7 @@ import androidx.activity.viewModels
 import com.google.firebase.firestore.AggregateSource
 
 private lateinit var QA_Button: Button
+var QuestionID = ArrayList<String>()
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -33,8 +34,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, QAActivity::class.java)
             QALauncher.launch(intent)
         }
-        var QuestionID = intent.getSerializableExtra("Q_id")
-        //Toast.makeText(this, intent.getSerializableExtra("Q_id").toString(), Toast.LENGTH_SHORT).show()
+        /*if (QuestionID.isEmpty()) {
+            for (i in 1 .. 5) {
+                QuestionID.add(i.toString())
+            }
+        }*/
+
+        //Toast.makeText(this, "done", Toast.LENGTH_SHORT).show()
         binding.playButton.setOnClickListener { view: View ->
             val intent = Intent(this, playActivity::class.java)
             intent.putExtra("questionID", QuestionID)
@@ -52,11 +58,18 @@ class MainActivity : AppCompatActivity() {
                     if (task.result.count == 0L) {
                         Toast.makeText(this, "Please click Q&A button and add questions", Toast.LENGTH_SHORT).show()
                     }
-                    else {
-                        binding.playButton.isEnabled = true;
-                    }
                 }
             }
+
+            db.collection("questions")
+                .get()
+                .addOnSuccessListener { result ->
+                    for (document in result) {
+                        QuestionID.add(document.id)
+                    }
+                    binding.playButton.isEnabled = true
+                }
+                .addOnFailureListener {}
         }
     }
 }

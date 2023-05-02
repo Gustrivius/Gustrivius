@@ -77,7 +77,6 @@ class playActivity : AppCompatActivity()  {
 
         if (click == QID.size) {
             (timer as CountDownTimer?)?.cancel()
-            click--
 
             val name = intent.getSerializableExtra("name").toString()
             val user = user(name, correct_score)
@@ -96,6 +95,8 @@ class playActivity : AppCompatActivity()  {
                 }
                 .setCancelable(false)
                 .show()
+
+            click = QID.size - 1
 
         }
         val doc = db.collection("questions").document(QID.elementAt(click))

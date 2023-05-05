@@ -67,6 +67,7 @@
         android:backgroundTint="#555555"
         android:textColor="#fff"
         android:layout_height="wrap_content"
+        android:textAllCaps="false"
         android:text="@string/nightmode"
         />
 

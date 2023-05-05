@@ -58,4 +58,13 @@
         android:text="@string/Submit_Username"
         />
 
+    <Button
+        android:id="@+id/nightmode_button"
+        android:layout_width="140dp"
+        android:backgroundTint="#555555"
+        android:textColor="#fff"
+        android:layout_height="wrap_content"
+        android:text="@string/nightmode"
+        />
+
 </LinearLayout>

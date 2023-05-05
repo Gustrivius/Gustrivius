@@ -52,7 +52,7 @@ class playActivity : AppCompatActivity()  {
             click--
 
             val name = intent.getSerializableExtra("name").toString()
-            val user = user(name, correct_score)
+            val user = user(name, correct_score.toLong())
             db.collection("leaderboard").add(user).addOnSuccessListener {
             }
 

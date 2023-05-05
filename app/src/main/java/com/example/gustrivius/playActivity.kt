@@ -79,7 +79,7 @@ class playActivity : AppCompatActivity()  {
             (timer as CountDownTimer?)?.cancel()
 
             val name = intent.getSerializableExtra("name").toString()
-            val user = user(name, correct_score)
+            val user = user(name, correct_score.toLong())
             db.collection("leaderboard").add(user).addOnSuccessListener {
             }
 
@@ -104,6 +104,7 @@ class playActivity : AppCompatActivity()  {
         doc.get().addOnSuccessListener { DocumentSnapShot ->
             //val questions = documentSnapshot.toObject<questions>()
             if (DocumentSnapShot != null) {
+                db.collection("questions").document(QID.elementAt(click))
                 val answerChoice = arrayOf(
                     DocumentSnapShot.get("correctAnswer").toString(),
                     DocumentSnapShot.get("wrongAnswer1").toString(),

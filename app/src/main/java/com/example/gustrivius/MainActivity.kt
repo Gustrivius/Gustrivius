@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -34,13 +35,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, QAActivity::class.java)
             QALauncher.launch(intent)
         }
-        /*if (QuestionID.isEmpty()) {
-            for (i in 1 .. 5) {
-                QuestionID.add(i.toString())
-            }
-        }*/
 
-        //Toast.makeText(this, "done", Toast.LENGTH_SHORT).show()
         binding.playButton.setOnClickListener { view: View ->
             val intent = Intent(this, playActivity::class.java)
             intent.putExtra("questionID", QuestionID)
@@ -50,22 +45,23 @@ class MainActivity : AppCompatActivity() {
 
         binding.usernameButton.setOnClickListener {
             username = binding.usernameText.text.toString()
-            binding.playButton.isEnabled = true;
+            binding.playButton.isEnabled = true
             binding.usernameText.getText().clear()
 
-            db.collection("questions").count().get(AggregateSource.SERVER).addOnCompleteListener { task ->
+            /*db.collection("questions").count().get(AggregateSource.SERVER).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     if (task.result.count == 0L) {
                         Toast.makeText(this, "Please click Q&A button and add questions", Toast.LENGTH_SHORT).show()
                     }
                 }
-            }
+            }*/
 
             db.collection("questions")
                 .get()
                 .addOnSuccessListener { result ->
                     for (document in result) {
                         QuestionID.add(document.id)
+                        Log.d("Tag", document.id)
                     }
                     binding.playButton.isEnabled = true
                 }

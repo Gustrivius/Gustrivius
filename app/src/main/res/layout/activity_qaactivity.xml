@@ -126,7 +126,7 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-
+            android:textAllCaps="false"
             android:text="@string/Submit"
             android:textSize="12sp"
             />
@@ -142,7 +142,7 @@
             android:id="@+id/MenuButton"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
-
+            android:textAllCaps="false"
             android:text="@string/QABack"
             android:textSize="12sp"
             />

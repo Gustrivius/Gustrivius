@@ -12,6 +12,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.example.gustrivius.databinding.ActivityMainBinding
 import androidx.activity.viewModels
 import com.google.firebase.firestore.AggregateSource
+import androidx.appcompat.app.AppCompatDelegate
 
 private lateinit var QA_Button: Button
 var QuestionID = ArrayList<String>()
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) {result ->}
     public var username = "defaultUsername";
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +68,12 @@ class MainActivity : AppCompatActivity() {
                     binding.playButton.isEnabled = true
                 }
                 .addOnFailureListener {}
+        }
+
+        binding.nightmodeButton.setOnClickListener {
+            if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
     }
 }

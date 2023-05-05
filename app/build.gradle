@@ -59,4 +59,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx:24.5.0'
     implementation 'com.firebaseui:firebase-ui-firestore:8.0.2'
     implementation 'com.mikhaellopez:circularimageview:4.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
 }

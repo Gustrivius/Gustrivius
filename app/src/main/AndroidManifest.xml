@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Gustrivius"
         tools:targetApi="31">
         <activity
+            android:name=".trashTalk"
+            android:exported="false" />
+        <activity
             android:name=".LeaderboardActivity"
             android:exported="false" />
         <activity

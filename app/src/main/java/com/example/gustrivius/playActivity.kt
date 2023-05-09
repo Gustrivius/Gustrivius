@@ -43,6 +43,11 @@ class playActivity : AppCompatActivity()  {
 
         QID.shuffled()
 
+        binding.chatButton.setOnClickListener { view: View->
+            val intent = Intent(this, trashTalk::class.java)
+            MenuLauncher.launch(intent)
+        }
+
         //var questionTextView = findViewById(R.id.question_text);
 
         moveToNext()

@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">Gustrivius</string>
 
-    <string name="QA_button">Q&amp;A</string>
+    <string name="QA_button">Q&amp;A Entry</string>
     <string name="play_button">Play</string>
     <string name="QABack">Back to Menu</string>
     <string name="Submit">Submit</string>
     <string name="Submit_Username">Submit</string>
+    <string name="nightmode">Nightmode</string>
 
 
     <string name="Question_Box">Type your question:</string>
@@ -14,8 +15,10 @@
     <string name="Answer_Box2">Wrong 1:</string>
     <string name="Answer_Box3">Wrong 2:</string>
     <string name="Answer_Box4">Wrong 3:</string>
-    <string name="Username_Box">Username</string>
+    <string name="Username_Box">Enter a username:</string>
 
     <string name="Score_text">Score</string>
     <string name="Question_text">Question:</string>
+
+    <string name="Profile_text">Edit Profile</string>
 </resources>

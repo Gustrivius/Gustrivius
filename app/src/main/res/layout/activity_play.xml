@@ -102,7 +102,7 @@
         android:layout_marginBottom="20dp"
         android:id="@+id/choice_4"/>
 
-    <Button
+    <!--<Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_4"
@@ -112,14 +112,13 @@
         android:textColor="#fff"
         android:padding="8dp"
         android:layout_marginBottom="24dp"
-        android:id="@+id/next_button"/>
+        android:id="@+id/next_button"/>-->
 
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/choice_4">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/MenuButton"
@@ -129,18 +128,7 @@
             android:textSize="12dp"
             />
 
-            <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/MenuButton"
-        android:text="Trash Talk"
-        android:backgroundTint="#4D982C"
-        android:textColor="#fff"
-        android:padding="12dp"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/chat_button"/>
-
-    </LinearLayout>
+    </LinearLayout>-->
 
 <!--    Ctrl+/ (line comment) or Ctrl+shift+/ (block comment) -->
 

@@ -51,6 +51,29 @@ class playActivity : AppCompatActivity()  {
         //var questionTextView = findViewById(R.id.question_text);
 
         moveToNext()
+
+        binding.quitButton.setOnClickListener {
+            //(timer as CountDownTimer?)?.cancel()
+            click--
+
+            val name = intent.getSerializableExtra("name").toString()
+            val user = user(name, correct_score.toLong())
+            db.collection("leaderboard").add(user).addOnSuccessListener {
+            }
+
+
+            AlertDialog.Builder (this)
+                .setTitle("Done")
+                .setMessage("Boo! You quit before answering all the questions, the score is: $correct_score")
+                .setPositiveButton("To Leaderboard") {dialogInterface, i ->
+                    correct_score = 0
+                    val intent = Intent(this, LeaderboardActivity::class.java)
+                    intent.putExtra("name", name)
+                    MenuLauncher.launch(intent)
+                }
+                .setCancelable(false)
+                .show()
+        }
     }
     fun moveToNext() {
         var duration : Long = TimeUnit.SECONDS.toMillis(10)
@@ -82,10 +105,9 @@ class playActivity : AppCompatActivity()  {
 
         if (click == QID.size) {
             (timer as CountDownTimer?)?.cancel()
-            click--
 
             val name = intent.getSerializableExtra("name").toString()
-            val user = user(name, correct_score)
+            val user = user(name, correct_score.toLong())
             db.collection("leaderboard").add(user).addOnSuccessListener {
             }
 
@@ -102,12 +124,15 @@ class playActivity : AppCompatActivity()  {
                 .setCancelable(false)
                 .show()
 
+            click = QID.size - 1
+
         }
         val doc = db.collection("questions").document(QID.elementAt(click))
         FirebaseFirestore.getInstance().collection("questions").get()
         doc.get().addOnSuccessListener { DocumentSnapShot ->
             //val questions = documentSnapshot.toObject<questions>()
             if (DocumentSnapShot != null) {
+                db.collection("questions").document(QID.elementAt(click))
                 val answerChoice = arrayOf(
                     DocumentSnapShot.get("correctAnswer").toString(),
                     DocumentSnapShot.get("wrongAnswer1").toString(),

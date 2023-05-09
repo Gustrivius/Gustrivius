@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import com.example.gustrivius.databinding.ActivityPlayBinding
 import com.example.gustrivius.databinding.ActivityQaactivityBinding
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
@@ -22,6 +23,7 @@ import kotlin.collections.HashSet
 var QID = HashSet<String>()
 var correct_score = 0
 var click = 0
+var hint = ""
 
 class playActivity : AppCompatActivity()  {
     val db = Firebase.firestore
@@ -46,6 +48,10 @@ class playActivity : AppCompatActivity()  {
         //var questionTextView = findViewById(R.id.question_text);
 
         moveToNext()
+
+        binding.hint.setOnClickListener {
+            Snackbar.make(it,hint,Snackbar.LENGTH_LONG).show()
+        }
 
         binding.quitButton.setOnClickListener {
             //(timer as CountDownTimer?)?.cancel()
@@ -140,6 +146,7 @@ class playActivity : AppCompatActivity()  {
                 binding.choice2.text = answerChoice[1]
                 binding.choice3.text = answerChoice[2]
                 binding.choice4.text = answerChoice[3]
+                hint = DocumentSnapShot.get("hint").toString()
                 //val obj = document.data.toObject<questions>()
                 //Toast.makeText(this, DocumentSnapShot.get("text").toString(), Toast.LENGTH_SHORT).show()
                 binding.choice1.setOnClickListener { view: View ->

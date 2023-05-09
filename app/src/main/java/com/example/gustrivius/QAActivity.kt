@@ -35,7 +35,8 @@ class QAActivity : AppCompatActivity() {
                 binding.editText2.text.toString(),
                 binding.editText3.text.toString(),
                 binding.editText4.text.toString(),
-                binding.editText5.text.toString()
+                binding.editText5.text.toString(),
+                binding.hint.text.toString()
             )
             db.collection("questions").add(questions).addOnSuccessListener {
                 documentReference ->
@@ -49,6 +50,7 @@ class QAActivity : AppCompatActivity() {
             binding.editText3.getText().clear()
             binding.editText4.getText().clear()
             binding.editText5.getText().clear()
+            binding.hint.getText().clear()
         }
 
         binding.MenuButton.setOnClickListener { view: View ->

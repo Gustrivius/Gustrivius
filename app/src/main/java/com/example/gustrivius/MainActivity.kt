@@ -63,7 +63,6 @@ class MainActivity : AppCompatActivity() {
                 .addOnSuccessListener { result ->
                     for (document in result) {
                         QuestionID.add(document.id)
-                        Log.d("Tag", document.id)
                     }
                     binding.playButton.isEnabled = true
                 }

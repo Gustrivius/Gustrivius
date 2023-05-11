@@ -45,6 +45,7 @@ class playActivity : AppCompatActivity()  {
 
         binding.chatButton.setOnClickListener { view: View->
             val intent = Intent(this, trashTalk::class.java)
+                .putExtra("name", intent.getSerializableExtra("name").toString())
             MenuLauncher.launch(intent)
         }
 
@@ -52,7 +53,7 @@ class playActivity : AppCompatActivity()  {
 
         moveToNext()
 
-        binding.quitButton.setOnClickListener {
+        /*binding.quitButton.setOnClickListener {
             //(timer as CountDownTimer?)?.cancel()
             click--
 
@@ -73,7 +74,7 @@ class playActivity : AppCompatActivity()  {
                 }
                 .setCancelable(false)
                 .show()
-        }
+        }*/
     }
     fun moveToNext() {
         var duration : Long = TimeUnit.SECONDS.toMillis(10)

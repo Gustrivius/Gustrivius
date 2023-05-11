@@ -102,17 +102,17 @@
         android:layout_marginBottom="20dp"
         android:id="@+id/choice_4"/>
 
-    <!--<Button
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_4"
-        android:text="Next"
+        android:text="chat"
         android:layout_alignParentRight="true"
         android:background="#00ffff"
         android:textColor="#fff"
         android:padding="8dp"
         android:layout_marginBottom="24dp"
-        android:id="@+id/next_button"/>-->
+        android:id="@+id/chat_button"/>
 
 
     <!--<LinearLayout

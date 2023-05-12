@@ -40,9 +40,9 @@ class QAActivity : AppCompatActivity() {
             db.collection("questions").add(questions).addOnSuccessListener {
                 documentReference ->
                 //Q_id.add(documentReference.id)
-                Toast.makeText(this, "Successfully submit the question, keep submit next question", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Your question submission was successful, submit another question or go back to the main menu", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {
-                Toast.makeText(this, "Submit the question failed, please let the designers know", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Your question failed to submit, please try again", Toast.LENGTH_SHORT).show()
             }
             binding.editText1.getText().clear()
             binding.editText2.getText().clear()

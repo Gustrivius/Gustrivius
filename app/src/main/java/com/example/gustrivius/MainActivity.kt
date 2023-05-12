@@ -45,10 +45,15 @@ class MainActivity : AppCompatActivity() {
             QALauncher.launch(intent)
         }
 
-        binding.usernameButton.setOnClickListener {
+        binding.profileButton.setOnClickListener { view: View ->
+            val intent = Intent(this, profileActivity::class.java)
+            QALauncher.launch(intent)
+        }
+
+        /*binding.usernameButton.setOnClickListener {
             username = binding.usernameText.text.toString()
             binding.playButton.isEnabled = true
-            binding.usernameText.getText().clear()
+            binding.usernameText.getText().clear()*/
 
             /*db.collection("questions").count().get(AggregateSource.SERVER).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -68,12 +73,15 @@ class MainActivity : AppCompatActivity() {
                     binding.playButton.isEnabled = true
                 }
                 .addOnFailureListener {}
-        }
 
         binding.nightmodeButton.setOnClickListener {
             if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
+
+        var fullname = intent.getSerializableExtra("userFullName")
+        binding.includedProfPic.usernameView.text = fullname.toString()
+
     }
 }

@@ -51,8 +51,8 @@ class playActivity : AppCompatActivity()  {
             //(timer as CountDownTimer?)?.cancel()
             click--
 
-            val name = intent.getSerializableExtra("name").toString()
-            val user = user(name, correct_score.toLong())
+            val username = intent.getSerializableExtra("UserFullName").toString()
+            val user = user(firstname = null, lastname = null, username, email = null, correct_score.toLong())
             db.collection("leaderboard").add(user).addOnSuccessListener {
             }
 
@@ -63,7 +63,7 @@ class playActivity : AppCompatActivity()  {
                 .setPositiveButton("To Leaderboard") {dialogInterface, i ->
                     correct_score = 0
                     val intent = Intent(this, LeaderboardActivity::class.java)
-                    intent.putExtra("name", name)
+                    intent.putExtra("name", username)
                     MenuLauncher.launch(intent)
                 }
                 .setCancelable(false)
@@ -102,7 +102,7 @@ class playActivity : AppCompatActivity()  {
             (timer as CountDownTimer?)?.cancel()
 
             val name = intent.getSerializableExtra("name").toString()
-            val user = user(name, correct_score.toLong())
+            val user = user(firstname = null, lastname = null, name, email = null, correct_score.toLong())
             db.collection("leaderboard").add(user).addOnSuccessListener {
             }
 

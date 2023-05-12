@@ -103,14 +103,15 @@
         android:backgroundTint="#BC8F5F"
         android:textColor="#fff"
         android:padding="12dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="60dp"
         android:id="@+id/choice_4"/>
 
     <Button
         android:id="@+id/quit_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_4"
+        android:layout_alignParentEnd="true"
         android:text="Quit"
         android:backgroundTint="#FF0000"
         android:textColor="#fff"

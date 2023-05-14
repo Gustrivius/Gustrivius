@@ -60,7 +60,7 @@
 
     <Button
         android:id="@+id/nightmode_button"
-        android:layout_width="140dp"
+        android:layout_width="180dp"
         android:backgroundTint="#555555"
         android:textColor="#fff"
         android:layout_height="wrap_content"

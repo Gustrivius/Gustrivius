@@ -19,8 +19,6 @@ class profileActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) {result ->}
 
-    var username = "default username"
-
     @SuppressLint("UseCompatLoadingForColorStateLists")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,12 +30,10 @@ class profileActivity : AppCompatActivity() {
 
         binding.includedProfLayout.profileBackArrow.setOnClickListener{view: View ->
             val intent = Intent(this, MainActivity::class.java)
+            var username = binding.usernameEntry.text.toString()
             var fullname = binding.firstNameEntry.text.toString().plus(" ").plus(binding.lastNameEntry.text.toString())
             intent.putExtra("userFullName", fullname)
-
-            val intent2 = Intent(this, playActivity::class.java)
-            var username = binding.usernameEntry.text.toString()
-            intent2.putExtra("UserFullName", username)
+            intent.putExtra("UserName", username)
             MenuLauncher.launch(intent)
         }
 

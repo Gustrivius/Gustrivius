@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Gustrivius</string>
+    <string name="app_name">Gus Trivia</string>
 
     <string name="QA_button">Q&amp;A Entry</string>
     <string name="play_button">Play</string>
     <string name="QABack">Main Menu</string>
     <string name="Submit">Submit</string>
     <string name="Submit_Username">Submit</string>
-    <string name="nightmode">Night Mode</string>
+    <string name="nightmode">Nightmode</string>
     <string name="Submit_Message">Submit</string>
 
     <string name="Question_Box">Type your question:</string>

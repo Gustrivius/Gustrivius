@@ -63,7 +63,7 @@ class playActivity : AppCompatActivity()  {
             //(timer as CountDownTimer?)?.cancel()
             click--
 
-            val username = intent.getSerializableExtra("UserFullName").toString()
+            val username = intent.getSerializableExtra("name").toString()
             val user = user(firstname = null, lastname = null, username, email = null, correct_score.toLong())
             db.collection("leaderboard").add(user).addOnSuccessListener {
             }
@@ -83,7 +83,7 @@ class playActivity : AppCompatActivity()  {
         }
     }
     fun moveToNext() {
-        var duration : Long = TimeUnit.SECONDS.toMillis(10)
+        var duration : Long = TimeUnit.SECONDS.toMillis(20)
 
         var timer = object : CountDownTimer(duration, 1000) {
             override fun onTick(millisUnitFinished: Long) {

@@ -18,7 +18,7 @@
         android:id="@+id/username_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gus Trivia"
+        android:text="@string/app_name"
         android:textStyle="bold"
         android:textSize="20sp"
         android:layout_marginTop="5dp"/>

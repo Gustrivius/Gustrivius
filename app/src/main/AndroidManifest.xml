@@ -27,6 +27,9 @@
             android:name=".QAActivity"
             android:exported="false" />
         <activity
+            android:name=".trashTalk"
+            android:exported = "false" />
+        <activity
             android:name=".playActivity"
             android:exported="false" />
         <activity

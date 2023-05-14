@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
-        android:text="00:10"
+        android:text="00:20"
         android:textSize="24sp"
         android:textStyle="bold">
 

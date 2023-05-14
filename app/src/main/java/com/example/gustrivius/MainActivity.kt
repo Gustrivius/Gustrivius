@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private val QALauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {result ->}
-    public var username = "defaultUsername";
+    var username = "default";
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
                     for (document in result) {
                         QuestionID.add(document.id)
                     }
-                    binding.playButton.isEnabled = true
+                    //binding.playButton.isEnabled = true
                 }
                 .addOnFailureListener {}
 
@@ -80,7 +80,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         var fullname = intent.getSerializableExtra("userFullName")
-        binding.includedProfPic.usernameView.text = fullname.toString()
+        if (fullname.toString() == "null") {
+            binding.includedProfPic.usernameView.text = "Gus Trivia"
+            binding.playButton.isEnabled = false
+        }
+        else {
+            binding.includedProfPic.usernameView.text = fullname.toString()
+            binding.playButton.isEnabled = true
+        }
+
+        username = intent.getSerializableExtra("UserName").toString()
 
     }
 }

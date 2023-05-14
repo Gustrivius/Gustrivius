@@ -39,14 +39,6 @@
 
     </LinearLayout>
 
-        <Button
-            android:id="@+id/play_button"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:textAllCaps="false"
-            android:text="@string/play_button"
-            />
-
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"

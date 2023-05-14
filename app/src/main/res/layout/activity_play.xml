@@ -72,7 +72,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/question_text"
         android:text="A"
-        android:textAllCaps="false"
         android:backgroundTint="#FFDAB9"
         android:textColor="#fff"
         android:padding="12dp"
@@ -84,7 +83,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_1"
         android:text="B"
-        android:textAllCaps="false"
         android:backgroundTint="#E8BFA1"
         android:textColor="#fff"
         android:padding="12dp"
@@ -96,7 +94,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_2"
         android:text="C"
-        android:textAllCaps="false"
         android:backgroundTint="#D2B48C"
         android:textColor="#fff"
         android:padding="12dp"
@@ -108,7 +105,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_3"
         android:text="D"
-        android:textAllCaps="false"
         android:backgroundTint="#BC8F5F"
         android:textColor="#fff"
         android:padding="12dp"
@@ -116,28 +112,16 @@
         android:id="@+id/choice_4"/>
 
     <Button
-        android:id="@+id/quit_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/choice_4"
-        android:text="Quit"
-        android:backgroundTint="#FF0000"
-        android:textColor="#fff"
-        android:padding="12dp"
-        android:textAllCaps="false"
-        android:layout_marginBottom="20dp"/>
-
-    <!--<Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/choice_4"
-        android:text="Next"
+        android:text="chat"
         android:layout_alignParentRight="true"
         android:background="#00ffff"
         android:textColor="#fff"
         android:padding="8dp"
         android:layout_marginBottom="24dp"
-        android:id="@+id/next_button"/>-->
+        android:id="@+id/chat_button"/>
 
 
     <!--<LinearLayout
